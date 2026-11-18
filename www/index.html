@@ -1,16 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<meta name="theme-color" content="#1b1d3a">
-<title>ほしあつめ</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1b2a17">
+<title>ブロッコリー・サバイバー</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app">
-  <canvas id="game" aria-label="ゲーム画面"></canvas>
-</div>
+<canvas id="c"></canvas>
+<button id="pbtn" aria-label="一時停止">❚❚</button>
+
+<!-- タイトル -->
+<div class="ov show" id="title"><div class="in">
+ <h1>ブロッコリー<br>サバイバー</h1>
+ <div class="sub">〜 畑を守れ！ 害虫ローグライト 〜</div>
+ <span class="pill">🌾 肥料 <span id="fert">0</span></span>
+ <div id="best" class="sub" style="margin:6px 0 0"></div>
+ <div id="chars"></div>
+ <button class="btn" id="startBtn">▶ 出発する</button><br>
+ <button class="btn alt" id="shopBtn">🌾 畑を強化</button>
+ <div class="howto">画面のどこでもドラッグして移動。攻撃は自動！<br>光の粒を集めてレベルアップ → 3つから強化を選ぼう。<br>4:00 に現れるボス「ヨトウムシ王」を倒せばクリア。<br>倒れても肥料が手に入り、永続強化に使えます。</div>
+</div></div>
+
+<!-- ショップ -->
+<div class="ov" id="shop"><div class="in">
+ <h2>🌾 畑の強化</h2>
+ <span class="pill">🌾 肥料 <span id="fert2">0</span></span>
+ <div id="shopList"></div>
+ <button class="btn alt" id="shopBack">もどる</button>
+</div></div>
+
+<!-- レベルアップ -->
+<div class="ov" id="lvup"><div class="in">
+ <h2>レベルアップ！</h2>
+ <div id="choices"></div>
+ <button class="btn alt small" id="reroll">🎲 リロール</button>
+</div></div>
+
+<!-- ポーズ -->
+<div class="ov" id="pause"><div class="in">
+ <h2>一時停止</h2>
+ <div class="stats" id="pstats"></div>
+ <button class="btn" id="resume">▶ つづける</button><br>
+ <button class="btn alt" id="sfxBtn">🔊 効果音: ON</button><br>
+ <button class="btn alt" id="giveup">あきらめる</button>
+</div></div>
+
+<!-- 結果 -->
+<div class="ov" id="over"><div class="in">
+ <h2 id="overTitle">しおれてしまった…</h2>
+ <div class="stats" id="ostats"></div>
+ <button class="btn" id="retry">もう一度</button><br>
+ <button class="btn alt" id="toTitle">タイトルへ</button>
+</div></div>
 <script src="game.js"></script>
 </body>
 </html>
